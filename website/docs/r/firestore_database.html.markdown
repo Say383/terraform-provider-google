@@ -20,7 +20,11 @@ description: |-
 # google\_firestore\_database
 
 A Cloud Firestore Database. Currently only one database is allowed per
-cloud project; this database must have a `database_id` of '(default)'.
+Cloud project; this database must have a `database_id` of '(default)'.
+
+If you wish to use Firestore with App Engine, use the
+[`google_app_engine_application`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_application)
+resource instead.
 
 
 To get more information about Database, see:
@@ -107,7 +111,7 @@ The following arguments are supported:
 
 * `name` -
   (Required)
-  Required. The ID to use for the database, which will become the final
+  The ID to use for the database, which will become the final
   component of the database's resource name. This value should be 4-63
   characters. Valid characters are /[a-z][0-9]-/ with first character
   a letter and the last a letter or a number. Must not be
@@ -124,7 +128,7 @@ The following arguments are supported:
   The type of the database.
   See https://cloud.google.com/datastore/docs/firestore-or-datastore
   for information about how to choose.
-  Possible values are `FIRESTORE_NATIVE` and `DATASTORE_MODE`.
+  Possible values are: `FIRESTORE_NATIVE`, `DATASTORE_MODE`.
 
 
 - - -
@@ -133,12 +137,12 @@ The following arguments are supported:
 * `concurrency_mode` -
   (Optional)
   The concurrency control mode to use for this database.
-  Possible values are `OPTIMISTIC`, `PESSIMISTIC`, and `OPTIMISTIC_WITH_ENTITY_GROUPS`.
+  Possible values are: `OPTIMISTIC`, `PESSIMISTIC`, `OPTIMISTIC_WITH_ENTITY_GROUPS`.
 
 * `app_engine_integration_mode` -
   (Optional)
   The App Engine integration mode to use for this database.
-  Possible values are `ENABLED` and `DISABLED`.
+  Possible values are: `ENABLED`, `DISABLED`.
 
 * `project` - (Optional) The ID of the project in which the resource belongs.
     If it is not provided, the provider project is used.
